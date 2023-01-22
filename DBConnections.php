@@ -1,7 +1,7 @@
 <?php
 class ConnOracle
 {
-    public $dbh;
+    public $conn;
     function __construct()
     {
         try {
@@ -16,7 +16,7 @@ class ConnOracle
 
             //$this->dbh = new PDO("mysql:host=".$server.";dbname=".dbname, $db_username, $db_password);
 
-            $this->dbh = new PDO("oci:dbname=" . $dbtns . ";charset=utf8", $db_username, $db_password, array(
+            $this->conn = new PDO("oci:dbname=" . $dbtns . ";charset=utf8", $db_username, $db_password, array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // Retorna o erro se houver.
                 PDO::ATTR_EMULATE_PREPARES => false,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
